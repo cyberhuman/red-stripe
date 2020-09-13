@@ -42,5 +42,5 @@ xmlstarlet sel \
 nl -s' ' -nrz |
 while read index fromPart toPart fileName; do
   set -- $(decode_time "$toPart")
-  ffmpeg -i "$INPUT" "$@" -frames:v 1 -f "${fileName##*.}" "N${index}_${fileName}"
+  ffmpeg -i "$INPUT" "$@" -frames:v 1 "N${index}_${fileName}"
 done
